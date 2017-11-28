@@ -12,7 +12,9 @@ public class TestCaseSample extends TestCase {
 
     public static void main(String[] args) {
         TestResult testResult = new TestResult();
-        new TestCaseSample("test").run(testResult);
+        TestSuite testSuite = new TestSuite();
+        testSuite.addTest(new TestCaseSample("test"));
+        testSuite.run(testResult);
         testResult.printTestCount();
     }
 }
