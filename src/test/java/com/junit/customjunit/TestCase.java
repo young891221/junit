@@ -19,19 +19,16 @@ public abstract class TestCase implements Test {
 
     @Override
     public void run(TestResult testResult) {
-        setUp();
         testResult.testStart();
-        testStartByReflection(testResult);
-        tearDown();
-    }
-
-    private void testStartByReflection(TestResult testResult) {
+        setUp();
         try {
             Method method = this.getClass().getMethod(testName, null);
             method.invoke(this, null);
         } catch (Exception e) {
             testResult.setStop();
             e.printStackTrace();
+        } finally {
+            tearDown();
         }
     }
 }
