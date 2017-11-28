@@ -11,6 +11,8 @@ public class TestCaseSample extends TestCase {
     }
 
     public static void main(String[] args) {
-        new TestCaseSample("test").run(new TestResult());
+        TestResult testResult = new TestResult();
+        new TestCaseSample("test").run(testResult);
+        testResult.printTestCount();
     }
 }
