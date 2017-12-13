@@ -22,9 +22,12 @@ public class TestRunner extends TestCase {
 
     public static void main(String[] args) {
         TestResult testResult = new TestResult();
+        TestSuite testSuite = new TestSuite();
 
-        new TestRunner("test1").run(testResult);
-        new TestRunner("test2").run(testResult);
+        testSuite.addTest(new TestRunner("test1"));
+        testSuite.addTest(new TestRunner("test2"));
+
+        testSuite.run(testResult);
         testResult.printTestCount();
     }
 }
