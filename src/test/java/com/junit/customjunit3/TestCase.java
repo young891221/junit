@@ -14,13 +14,23 @@ public abstract class TestCase implements Test {
     @Override
     public void run(TestResult testResult) {
         testResult.testStart();
+        setUp();
         try {
             Method method = this.getClass().getMethod(testName, null);
             method.invoke(this, null);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            tearDown();
             testResult.setStop();
         }
+    }
+
+    private void setUp() {
+        System.out.println("setUp");
+    }
+
+    private void tearDown() {
+        System.out.println("tearDown");
     }
 }
