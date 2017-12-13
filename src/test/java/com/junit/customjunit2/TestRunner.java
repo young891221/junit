@@ -23,7 +23,7 @@ public class TestRunner extends TestCase {
     public static void main(String[] args) {
         TestResult testResult = new TestResult();
         TestSuite testSuite = new TestSuite();
-        testSuite.addTest(new TestRunner("test1"));
+        testSuite.addTest(new TestRunner("test1"));//테스트 인스턴스를 생성하지 않고 static으로 만들어서 사용?
         testSuite.addTest(new TestRunner("test2"));
         testSuite.run(testResult);
         testResult.printTestCount();
